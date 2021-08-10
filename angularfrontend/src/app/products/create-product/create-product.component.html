@@ -63,15 +63,15 @@
                         <span class="red" *ngIf="productForm.controls['model'].errors.required">the model was required</span>
                       </div>
                     </mat-form-field>
-                     <mat-form-field style="width: 100%" class="margin_form">
+                     <!-- <mat-form-field style="width: 100%" class="margin_form">
                       <mat-label for="cpu">CPU:</mat-label>
                       <input type="text" matInput formControlName="cpu" id="cpu" placeholder="cpu">
                        <div *ngIf="productForm.controls['cpu'].errors && !productForm.controls['cpu'].pristine">
                          <span class="red" *ngIf="productForm.controls['cpu'].errors.required">the cpu was required</span>
                        </div>
-                    </mat-form-field>
+                    </mat-form-field> -->
 
-                    <mat-form-field style="width: 100%"  appearance="fill" class="margin_form">
+                    <!-- <mat-form-field style="width: 100%"  appearance="fill" class="margin_form">
                       <mat-label>Generation</mat-label>
                       <mat-select formControlName="generation">
                         <mat-option *ngFor="let key of generationKeys; index as i" [value]="key">
@@ -81,7 +81,7 @@
                       <div *ngIf="productForm.controls['generation'].errors && !productForm.controls['generation'].pristine">
                         <span class="red" *ngIf="productForm.controls['generation'].errors.required">the generation was required</span>
                       </div>
-                    </mat-form-field>
+                    </mat-form-field> -->
 
                     <mat-form-field style="width: 100%" class="margin_form">
                       <mat-label for="price">Price:</mat-label>
@@ -91,7 +91,7 @@
                       </div>
                     </mat-form-field>
 
-                    <mat-form-field appearance="fill" style="width: 100%" class="margin_form">
+                    <!-- <mat-form-field appearance="fill" style="width: 100%" class="margin_form">
                       <mat-label>Release Date:</mat-label>
                       <input matInput formControlName="releaseDate" [matDatepicker]="picker">
                       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -99,7 +99,7 @@
                       <div *ngIf="productForm.controls['releaseDate'].errors && !productForm.controls['releaseDate'].pristine">
                         <span class="red" *ngIf="productForm.controls['releaseDate'].errors.required"> the releaseDate was required</span>
                       </div>
-                    </mat-form-field>
+                    </mat-form-field> -->
 
                     <mat-form-field style="width: 100%" appearance="fill" class="margin_form">
                       <mat-label>Category</mat-label>
@@ -123,13 +123,13 @@
                       </div>
                     </mat-form-field>
 
-                    <mat-form-field style="width: 100%" class="margin_form">
+                    <!-- <mat-form-field style="width: 100%" class="margin_form">
                       <mat-label  for="ram">RAM:</mat-label>
                       <input formControlName="ram"  matInput type="text"   id="ram" placeholder="ram">
                       <div *ngIf="productForm.controls['ram'].errors && !productForm.controls['ram'].pristine">
                         <span class="red" *ngIf="productForm.controls['ram'].errors.required"> the ram was required</span>
                       </div>
-                    </mat-form-field>
+                    </mat-form-field> -->
 
                     <mat-form-field style="width: 100%" class="margin_form">
                       <mat-label>Description:</mat-label>

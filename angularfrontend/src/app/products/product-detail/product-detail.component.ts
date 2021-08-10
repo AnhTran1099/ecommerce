@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ProductService} from '../../shared/product.service';
 import {Product} from '../../modules/product';
-import { MyBrand } from 'src/app/enums/myBrand';
-import { MyGeneration } from 'src/app/enums/myGeneration';
-
+import {MyBrand} from '../../enums/myBrand';
+import {MyGeneration} from '../../enums/myGeneration';
 
 @Component({
   selector: 'app-product-detail',
@@ -16,7 +15,7 @@ export class ProductDetailComponent implements OnInit {
   categoryId!: number;
   promotionId!: number;
   productName!: string;
-  brand: MyBrand | undefined
+  brand!: MyBrand;
   model!: string;
   cpu!: string;
   price!: number;
@@ -24,7 +23,7 @@ export class ProductDetailComponent implements OnInit {
   ram!: string;
   description!: string;
   image!: Blob;
-  generation: MyGeneration | undefined;
+  generation!: MyGeneration;
   category!: string;
   promotion!: string;
 
@@ -39,10 +38,10 @@ export class ProductDetailComponent implements OnInit {
         this.productName = productData.productName;
         this.brand = productData.brand;
         this.model = productData.model;
-        this.cpu = productData.cpu;
+        // this.cpu = productData.cpu;
         this.price = productData.price;
-        this.releaseDate = productData.releaseDate;
-        this.ram = productData.ram;
+        // this.releaseDate = productData.releaseDate;
+        // this.ram = productData.ram;
         this.description = productData.description;
         this.image = productData.image;
         this.category = productData.category.categoryName;

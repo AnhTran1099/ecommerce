@@ -8,13 +8,9 @@ export interface Product {
   productName: string,
   brand: MyBrand,
   model: string,
-  cpu: string,
   price: number,
-  releaseDate: Date,
-  ram: string,
   description: string,
   image: Blob,
-  generation: MyGeneration,
   category: Category;
   promotion: Promotion;
 }

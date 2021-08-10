@@ -14,10 +14,10 @@ import {Router} from '@angular/router';
 export class ListProductsComponent implements OnInit {
 
   dataSource!: ProductPaging;
-  promotionColumns: string[] = ['image' , 'productName' , 'brand' , 'generation' , 'action'];
+  promotionColumns: string[] = ['image' , 'productName' , 'brand' ,  'action'];
   products: Product[] = [];
   listProducts: Product[] = [];
-  pageEvent: PageEvent | undefined;
+  pageEvent!: PageEvent;
   totalElements!: number;
   filteringValue!: string;
   size!: number;
@@ -32,12 +32,12 @@ export class ListProductsComponent implements OnInit {
         this.totalElements = productData.totalElements;
         this.size = productData.size;
       })
-    ).subscribe()
+    ).subscribe();
 
     this.productService.getList().subscribe(
-      (products) => {
+      (products => {
         this.listProducts = products;
-      }
+      })
     )
   }
 

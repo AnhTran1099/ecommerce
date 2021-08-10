@@ -2,15 +2,15 @@ import {Component, Input, OnInit} from '@angular/core';
 import {MyBrand} from '../../enums/myBrand';
 import {MyGeneration} from '../../enums/myGeneration';
 import {Category} from '../../modules/category';
+import {CategoriesService} from '../../shared/categories.service';
 import {map} from 'rxjs/operators';
 import {Promotion} from '../../modules/promotion';
+import {PromotionService} from '../../shared/promotion.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {checkDuplicatedProductName} from '../../validation/checkProductName';
 import {ProductService} from '../../shared/product.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Product} from '../../modules/product';
-import { CategoriesService } from 'src/app/shared/categories.service';
-import { PromotionService } from 'src/app/shared/promotion.service';
+import { checkDuplicatedProductName } from 'src/app/validation/checkProductName';
 
 @Component({
   selector: 'app-create-product',
@@ -41,13 +41,13 @@ export class CreateProductComponent implements OnInit {
 
   url: any;
 
-  constructor(private categoriesService: CategoriesService, private  promotionService: PromotionService,
+  constructor(private categoryService: CategoriesService, private  promotionService: PromotionService ,
               private productService: ProductService, private formBuilder: FormBuilder ,
               private router: Router , private route: ActivatedRoute) {
     // @ts-ignore
     this.keys = Object.keys(this.myBrand);
     // @ts-ignore
-    this.generationKeys = Object.keys(this.myGeneration);
+    // this.generationKeys = Object.keys(this.myGeneration);
   }
 
 
@@ -63,13 +63,13 @@ export class CreateProductComponent implements OnInit {
       productName: ['' , Validators.required , checkDuplicatedProductName(this.productService)],
       brand: ['' , Validators.required],
       model: ['' , Validators.required],
-      cpu: ['' , Validators.required],
-      generation: ['' , Validators.required],
+      // cpu: ['' , Validators.required],
+      // generation: ['' , Validators.required],
       price: ['' , Validators.required],
-      releaseDate: ['' , Validators.required],
+      // releaseDate: ['' , Validators.required],
       category: ['' , Validators.required],
       promotion: ['' , Validators.required],
-      ram: ['' , Validators.required],
+      // ram: ['' , Validators.required],
       description: ['' , Validators.required],
       file: ['']
     });
@@ -90,7 +90,7 @@ export class CreateProductComponent implements OnInit {
   }
 
   categoriesRequest() {
-    this.categoriesService.getCategories().subscribe(
+    this.categoryService.getCategories().subscribe(
       (categoriesData) => {
         this.categories = categoriesData;
       }
@@ -111,13 +111,13 @@ export class CreateProductComponent implements OnInit {
     formData.append('productName' , this.productForm.controls.productName.value);
     formData.append('brand' , this.productForm.controls.brand.value);
     formData.append('model' , this.productForm.controls.model.value);
-    formData.append('cpu' , this.productForm.controls.cpu.value);
-    formData.append('generation' , this.productForm.controls.generation.value);
+    // formData.append('cpu' , this.productForm.controls.cpu.value);
+    // formData.append('generation' , this.productForm.controls.generation.value);
     formData.append('price' , this.productForm.controls.price.value);
-    formData.append('releaseDate' , this.productForm.controls.releaseDate.value);
+    // formData.append('releaseDate' , this.productForm.controls.releaseDate.value);
     formData.append('category' , this.productForm.controls.category.value);
     formData.append('promotion' , this.productForm.controls.promotion.value);
-    formData.append('ram' , this.productForm.controls.ram.value);
+    // formData.append('ram' , this.productForm.controls.ram.value);
     formData.append('description' , this.productForm.controls.description.value);
     formData.append('file' , this.selectedFile , this.selectedFile.name);
     let categoryId: number = this.productForm.controls.category.value;
